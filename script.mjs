@@ -86,7 +86,6 @@ app.delete('/uknumberones/:id', (req, res) => {
         const stmt = db.prepare('DELETE FROM wadsongs WHERE id=?');
         const info = stmt.run(req.params.id);
         if(info.changes == 1) {
-			res = stmt.
             res.json({success:1});
         } else {
             res.status(404).json({error: 'No song with that ID'});
@@ -98,9 +97,13 @@ app.delete('/uknumberones/:id', (req, res) => {
 
 app.post('/uknumberones/add', (req, res) => {
 	try {
-		const stmt = db.prepare('INSERT INTO wadsongs (title, artist, year, download, price, quantity) VALUES (?, ?, ?, ?, ?, ?)');
-		const info = stmt.run(req.body.title, req.body.artist, req.body.year, req.body.download, req.body.price, req.body.quantity);
-		res.json({id: info.lastInsertRowid});
+		if (req.body.title == "" || req.body.artist == "" || req.body.year == "" || req.body.downloads == "" || req.body.price == "" || req.body.quantity == "") {
+			res.status(400).json({error: 'Error Bad Request! input data is empty'});
+		} else {
+			const stmt = db.prepare('INSERT INTO wadsongs (title, artist, year, downloads, price, quantity) VALUES (?, ?, ?, ?, ?, ?)');
+			const info = stmt.run(req.body.title, req.body.artist, req.body.year, req.body.downloads, req.body.price, req.body.quantity);
+			res.json({id: info.lastInsertRowid});
+		}
 	} catch(error) {
 		res.status(500).json({ error: error });
 	}

@@ -25,7 +25,7 @@ document.getElementById('ajaxButton').addEventListener('click', ()=> {
 		title: document.getElementById('songTitle').value,
 		artist: document.getElementById('artistName').value,
 		year: document.getElementById('yearDate').value,
-		download: document.getElementById('downloadCount').value,
+		downloads: document.getElementById('downloadCount').value,
 		price: document.getElementById('priceAmount').value,
 		quantity: document.getElementById('totalQuantity').value
 	}

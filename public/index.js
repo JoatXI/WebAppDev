@@ -23,7 +23,7 @@ async function ajaxSearch(artistName) {
 			// Adding the new node to the <div id="results">
 			document.getElementById("results").appendChild(node1);
 			
-			document.getElementById("quantity${song.id}").appendChild(node1);
+			node1.appendChild(textField);
 			
 			// creates a "buy" button event handler
 			buttonElement.addEventListener('click', ajaxBuy.bind(this, song));
@@ -37,14 +37,16 @@ async function ajaxSearch(artistName) {
 
 async function ajaxBuy(purchaseSong) {
 	try {
-		const totalQuantity = getElementById("quantity${song.id}").value;
+		const totalQuantity ={
+			quantity: document.getElementById(`quantity${purchaseSong.id}`).value
+		}
 		
 		const response = await fetch(`/uknumberones/${purchaseSong.id}/buy`, {
 			method: 'POST',
 			headers: {
 				'Content-Type' : 'application/json'
-			}
-			body: JSON.stringify(totalQuantity);
+			},
+			body: JSON.stringify(totalQuantity)
 		});
 		
 		if(response.status == 404) {
