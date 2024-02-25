@@ -35,16 +35,16 @@ Open your web browser and visit http://localhost:2024 to view the application.
 Project Structure
 The repository follows a standard project structure:
 
-WebAppDev/
-│
-├── public/           # Static assets (images, stylesheets, etc.)
-│
-├── src/              # Source code
-│   ├── components/   # React components
-│   ├── views/        # EJS views
-│   ├── server.js     # Node.js server file
-│
-├── package.json      # Project configuration and dependencies
-└── README.md         # Project documentation
+WebAppDev/<br>
+│<br>
+├── public/           # Static assets (images, stylesheets, etc.)<br>
+│<br>
+├── src/              # Source code<br>
+│   ├── components/   # React components<br>
+│   ├── views/        # EJS views<br>
+│   ├── server.js     # Node.js server file<br>
+│<br>
+├── package.json      # Project configuration and dependencies<br>
+└── README.md         # Project documentation<br>
 
 Happy coding! 🚀
