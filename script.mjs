@@ -120,6 +120,6 @@ app.put('/uknumberones/:id', (req, res) => {
 });
 
 // Starting server
-app.listen(3000, () => {
-	console.log('Server running on port 3000');
+app.listen(2024, () => {
+	console.log('Server running on port 2024');
 });
