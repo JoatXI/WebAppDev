@@ -28,7 +28,7 @@ Install dependencies using NPM:
 `npm install`
 
 Start the development server:
-`npm start` or install pm2 using: `npm install -g pm2` which installs pm2 globally in your computer. Then use `pm start script.mjs` to start the server on live mode.
+`npm start` or install pm2 using: `npm install -g pm2` which installs pm2 globally in your computer. Then use `pm2 start script.mjs --watch` to start the server on live mode.
 
 Open your web browser and visit http://localhost:2024 to view the application.
 
