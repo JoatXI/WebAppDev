@@ -63,6 +63,16 @@ app.get('/uknumberones/id/:id', (req, res) => {
 	}
 });
 
+app.get('/uknumberones/hometown/:artist', (req, res) => {
+	try {
+		const stmt = db.prepare('SELECT * FROM artists WHERE name = ?');
+		const result = stmt.all(req.params.artist);
+		res.json(result);
+	} catch(error) {
+		res.status(500).json({ error: error });
+	}
+});
+
 app.post('/uknumberones/:id/buy', (req, res) => {
     try {
 		if(req.body.quantity == "") {
